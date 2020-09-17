@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jmeter-master-deployment
+spec:
+  selector:
+    matchLabels:
+      app: master
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: master
+    spec:
+      containers:
+      - name: jmeter-master
+        image: macpellow/jmeter-master:latest
+        command: ["/run-distributed-test.sh"]
+      restartPolicy: Never

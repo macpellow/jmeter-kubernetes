@@ -1,0 +1,10 @@
+# 
+FROM jmeter-base:latest
+
+
+
+ENTRYPOINT jmeter \
+-n -s \
+-Dserver.rmi.localport=10102 \
+-Dserver_port=10101 \
+-Jserver.rmi.ssl.disable=true

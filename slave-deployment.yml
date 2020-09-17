@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jmeter-slaves-service
+  labels:
+    app: slave
+spec:
+  clusterIP: None
+  ports:
+    - port: 10101
+      name: first
+      targetPort: 10101
+    - port: 10102
+      name: second
+      targetPort: 10102
+  selector:
+    app: slave
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jmeter-slaves-deployment
+spec:
+  selector:
+    matchLabels:
+      app: slave
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: slave
+    spec:
+      containers:
+      - name: jmeter-slave
+        image: macpellow/jmeter-slave:latest
+        ports:
+        - containerPort: 10101
+        - containerPort: 10102

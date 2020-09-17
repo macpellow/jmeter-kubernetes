@@ -1,0 +1,6 @@
+# 
+FROM jmeter-base:latest
+
+COPY *.jmx /
+COPY run-distributed-test.sh /
+
