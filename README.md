@@ -6,4 +6,5 @@ Goals:
 
   - Universal and easy to use framework for distributed load generation based on Apache JMeter
   - Live monitoring based on InfluxDB/Grafana or/and Elasticsearch/Kibana
-  - Ease integration with existing JMeter tests 
+  - Easy integration with existing JMeter tests 
+  - Easy installation of additional plugins and Jars (for instance Kafka messaging) 
